@@ -3,7 +3,7 @@
 Plugin Name: Facebook Events Widget
 Plugin URI: http://roidayan.com
 Description: Widget to display events from Facebook page or group
-Version: 1.9.11
+Version: 1.9.12
 Author: Roi Dayan
 Author URI: http://roidayan.com
 License: GPLv2
@@ -86,6 +86,8 @@ class Facebook_Events_Widget extends WP_Widget {
         $this->admin_url = admin_url('widgets.php');
 
         add_action('init', array($this, 'add_style'));
+
+		$this->_fb_login_url = '';
     }
 
     function add_style() {
@@ -213,10 +215,8 @@ class Facebook_Events_Widget extends WP_Widget {
 
 		if ( empty($accessToken) && !empty($appId) && !empty($appSecret) ) {
 
-			$loginUrl = $this->_fb_login_url;
-
-			if ( isset($loginUrl) ) {
-				echo '<p><a class="button-secondary" href="' . $loginUrl . '">' .
+			if ( ! empty( $this->_fb_login_url ) ) {
+				echo '<p><a class="button-secondary" href="' . $this->_fb_login_url . '">' .
 					__('Get Facebook access token', FBEVENTS_TD) . '</a></p>';
 			} else {
 				_e( "<strong>ERROR:</strong> failed to get Facebook login url.", FBEVENTS_TD );
@@ -245,7 +245,7 @@ class Facebook_Events_Widget extends WP_Widget {
 			if ( isset( $session ) ) {
 				$token = $session->getToken();
 			} else {
-				$scope = array( 'offline_access', 'user_events' );
+				$scope = array( 'user_events', 'manage_pages' );
 				$this->_fb_login_url = $helper->getLoginUrl( $scope );
 			}
 
