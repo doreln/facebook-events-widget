@@ -3,8 +3,8 @@ Contributors: roidayan
 Donate link: http://roidayan.com
 Tags: events, Facebook, fan page, group, Facebook Events, events
 Requires at least: 3.2.1
-Tested up to: 4.3
-Stable tag: 1.9.15
+Tested up to: 4.5
+Stable tag: 1.9.16
 
 Widget to display events from Facebook page or group
 
@@ -17,7 +17,7 @@ http://www.codeofaninja.com/2011/07/display-facebook-events-to-your-website.html
 
 Version 1.9 requires PHP 5.4 or up.
 
-Upgrade note: 
+Upgrade note:
 If you modified style.css remember to save it before doing updates to the plugin.
 
 == Installation ==
@@ -44,6 +44,10 @@ You need to edit the style.css file.
 
 
 == Changelog ==
+
+= 1.9.16 =
+* Fix working with copied events
+* Fix adjust times not working for everyone
 
 = 1.9.15 =
 * Fix showing events under the right cal separator
