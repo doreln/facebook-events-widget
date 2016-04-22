@@ -173,12 +173,12 @@ class Facebook_Events_Widget extends WP_Widget {
 		}
 		if (ctype_digit($tm)) {
 			$n = $tm;
-			if ($offset != 0)
-				$n -= $offset * 3600;
 		} else {
 			$r = new DateTime($tm);
 			$n = $r->format('U') + $r->getOffset();
 		}
+		if ($offset != 0)
+			$n -= $offset * 3600;
 		return $n;
 	}
 
