@@ -333,7 +333,8 @@ class Facebook_Events_Widget extends WP_Widget {
 		$url = "/{$pageId}/events";
 
 		$p = array(
-			'fields' => 'id,name,picture,start_time,end_time,place,description'
+			'fields' => 'id,name,picture,start_time,end_time,place,description',
+			'limit' => 100
 		);
 
 		if ( $fix_events_query ) {
@@ -387,11 +388,18 @@ class Facebook_Events_Widget extends WP_Widget {
 			}
 		}
 
-		$future_events = array_reverse( $future_events );
+		function compare_events( $ev1, $ev2 ) {
+			if ( $ev1->start_time == $ev2->start_time )
+				return 0;
+			return ($ev1->start_time < $ev2->start_time) ? -1 : 1;
+		}
+
+		usort( $future_events, "compare_events" );
 
 		if ( $futureOnly ) {
 			$data = $future_events;
 		} else {
+			usort( $past_events, "compare_events" );
 			$data = array_merge( $future_events, $past_events );
 		}
 
