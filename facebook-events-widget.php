@@ -3,7 +3,7 @@
 Plugin Name: Facebook Events Widget
 Plugin URI: http://roidayan.com
 Description: Widget to display events from Facebook page or group
-Version: 1.9.17
+Version: 1.9.18
 Author: Roi Dayan
 Author URI: http://roidayan.com
 License: GPLv2
@@ -402,6 +402,7 @@ class Facebook_Events_Widget extends WP_Widget {
 			$data = $future_events;
 		} else {
 			usort( $past_events, "Facebook_Events_Widget::compare_events" );
+			$past_events = array_reverse( $past_events );
 			$data = array_merge( $future_events, $past_events );
 		}
 

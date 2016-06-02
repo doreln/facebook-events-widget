@@ -4,7 +4,7 @@ Donate link: http://roidayan.com
 Tags: events, Facebook, fan page, group, Facebook Events, events
 Requires at least: 3.2.1
 Tested up to: 4.5
-Stable tag: 1.9.17
+Stable tag: 1.9.18
 
 Widget to display events from Facebook page or group
 
@@ -44,6 +44,9 @@ You need to edit the style.css file.
 
 
 == Changelog ==
+
+= 1.9.18 =
+* reverse the list of past events
 
 =  1.9.17 =
 * fix working with more than 1 widget instance
