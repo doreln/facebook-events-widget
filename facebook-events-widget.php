@@ -2,6 +2,8 @@
 /*
 Plugin Name: Facebook Events Widget
 Plugin URI: http://roidayan.com
+Text Domain: fbevents
+Domain Path: /languages
 Description: Widget to display events from Facebook page or group
 Version: 1.9.18
 Author: Roi Dayan
