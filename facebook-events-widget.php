@@ -2,8 +2,7 @@
 /*
 Plugin Name: Facebook Events Widget
 Plugin URI: http://roidayan.com
-Text Domain: fbevents
-Domain Path: /languages
+Text Domain: facebook-events-widget
 Description: Widget to display events from Facebook page or group
 Version: 1.9.18
 Author: Roi Dayan
@@ -51,7 +50,7 @@ use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookSDKException;
 
 
-define( 'FBEVENTS_TD', 'fbevents' );
+define( 'FBEVENTS_TD', 'facebook-events-widget' );
 
 
 class Facebook_Events_Widget extends WP_Widget {
